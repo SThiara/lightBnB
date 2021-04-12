@@ -160,8 +160,8 @@ const addProperty = function(property) {
   properties[propertyId] = property;
   return pool.query(`INSERT INTO properties VALUES (propertyID, properties.owner_id, properties.title, properties.description, 
     properties.thumbnail_photo_url, properties.cover_photo_url, properties.cost_per_night, properties.street, properties.city, 
-    properties.province, properties.post_code, properties.country, properties.parking_space, properties.number_of_bathrooms, properties.number_of_bedrooms 
-    RETURNING *)`)
+    properties.province, properties.post_code, properties.country, properties.parking_space, properties.number_of_bathrooms, properties.number_of_bedrooms) 
+    RETURNING *`)
   .then(res => res.rows)
   .then(Promise.resolve(property));
 }
